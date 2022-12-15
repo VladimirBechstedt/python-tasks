@@ -19,9 +19,13 @@ def with_a_person(sweets):
     while sweets >= 28:
         c = True
         while c:
-            a = int(input('Сколько конфет вы берёте: '))
-            c = False if a <= 28 else True
-        print('Ход переходит следующему')
+            try:
+                a = int(input('Сколько конфет вы берёте: '))
+                c = False if 0 < a <= 28 else True
+            except ValueError:
+                pass
+
+        print('\033[4m\033[31m\033[44m{}\033[0m' .format('Ход переходит следующему'))
         sweets -= a
         b += 1
 
@@ -42,9 +46,13 @@ def with_a_bot(sweets):
             if play:
                 c = True
                 while c:
-                    a = int(input('Сколько конфет вы берёте: '))
-                    c = False if a <= 28 else True
-                print('Ход переходит следующему')
+                    try:
+                        a = int(input('Сколько конфет вы берёте: '))
+                        c = False if 0 < a <= 28 else True
+                    except ValueError:
+                        pass
+
+                print('\033[4m\033[31m\033[44m{}\033[0m'.format('Ход переходит следующему'))
                 sweets -= a
                 b += 1
                 play = True if sweets >= 28 else False
@@ -52,7 +60,7 @@ def with_a_bot(sweets):
             if play:
                 bot = randint(1, 28)
                 print(f'Бот берёт {bot} конфет')
-                print('Ход переходит следующему')
+                print('\033[4m\033[31m\033[44m{}\033[0m'.format('Ход переходит следующему'))
                 sweets -= bot
                 b += 1
                 play = True if sweets >= 28 else False
@@ -62,7 +70,7 @@ def with_a_bot(sweets):
             if play:
                 bot = randint(1, 28)
                 print(f'Бот берёт {bot} конфет')
-                print('Ход переходит следующему')
+                print('\033[4m\033[31m\033[44m{}\033[0m'.format('Ход переходит следующему'))
                 sweets -= bot
                 b += 1
                 play = True if sweets >= 28 else False
@@ -70,9 +78,13 @@ def with_a_bot(sweets):
             if play:
                 c = True
                 while c:
-                    a = int(input('Сколько конфет вы берёте: '))
-                    c = False if a <= 28 else True
-                print('Ход переходит следующему')
+                    try:
+                        a = int(input('Сколько конфет вы берёте: '))
+                        c = False if 0 < a <= 28 else True
+                    except ValueError:
+                        pass
+
+                print('\033[4m\033[31m\033[44m{}\033[0m'.format('Ход переходит следующему'))
                 sweets -= a
                 b += 1
                 play = True if sweets >= 28 else False
@@ -139,7 +151,13 @@ print('''С кем вы хотите играть?
       Если с другом введите 1
       Если с ботом введите 2
       Если с умным ботом введите 3''')
-choice = int(input('Ваш выбор? '))
+while True:
+    try:
+        choice = int(input('Ваш выбор? '))
+        if 0 < choice < 4:
+            break
+    except ValueError:
+        pass
 
 CANDIES = 200
 
