@@ -47,8 +47,8 @@ def launch():
             view.display_data(model.employee_list())
             view.pause()
         if numder_menu == 7:
-            model.write_csv()
-        if numder_menu == 8:
             model.write_json()
+        if numder_menu == 8:
+            model.write_csv()
         if numder_menu == 9:
             break
